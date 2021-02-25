@@ -1,0 +1,16 @@
+version: '3'
+services:
+  client:
+    build: .
+      command: [ "go run greet/greet_client/client.go" ]
+      volumes:
+        - .:/usr/src/app/
+      ports:
+        - "50051:50051"
+  server:
+    build: .
+    command: ["go run greet/greet_server/server.go"]
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - "50051:50051"

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package="github.com\\Arailym2002talgatkyzu\\end-term-practice\\greet\\greetpb;greetpb";
+
+
+message Greeting {
+  int64 number = 1;
+}
+
+message AverageGreetRequest {
+  Greeting greeting = 1;
+}
+
+message AverageGreetResponse {
+  float result = 1;
+}
+
+
+service GreetService{
+  rpc AverageGreet(stream AverageGreetRequest) returns (AverageGreetResponse) {};
+}
